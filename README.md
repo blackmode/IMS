@@ -15,6 +15,7 @@ etapa 3- hranice, poruba, ostrava 2x, - 9 plavebních komor 252/253
 etapa 3 odbočka - olomouc, přístav u štenberku 0 plavebních komor 256/257
 etapa 1a polsko - raciborz, - 4 plavební komory 274/275
 etapa 4 - choceň, ústí nad orlicí, lanškroun, zábřeh, uničov, 11 plavebních komor, 5 tunelů, 2 mosty 280/281
+31 plavebních komor
 délka 507,34, náklady 8880,6 milionu Eur
 292/293 pěkné obrázky kolik to bude stát
 

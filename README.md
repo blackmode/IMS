@@ -19,6 +19,8 @@ etapa 4 - choceň, ústí nad orlicí, lanškroun, zábřeh, uničov, 11 plavebn
 délka 507,34, náklady 8880,6 milionu Eur
 292/293 pěkné obrázky kolik to bude stát
 
+rychlost lodě na kanály přibližně 10 uzlů což je přibližně 19km/h
+
 
 
 

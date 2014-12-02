@@ -42,5 +42,24 @@ délka cca 370 km
 cca 21,621,622 Eur na km = 605 405 000 Kč
 
 
+--------------------------------------------------
+parametry (k)análu
+
+    Vodní cesta je navrhována s následujícími rozměry:
+    Třída vodní cesty[56]: Vb
+    Přípustná délka tlačných souprav (m)[57]: 185
+    Přípustná délka motor. náklad. lodí (m): 135
+    Přípustná šířka plavidel (m): 11,4
+    Přípustný ponor (m): 2,8
+    Maximální nosnost souprav (t): 4 000
+    Maximální nosnost motor. nákl. lodí (t): 2 700
+    Délka plavebních komor (m): 190
+    Šířka plavebních komor (m): 12,5
+    Šířka plavební dráhy (m): 40,0
+    Šířka lichoběžníkového profilu průplavu v hladině (m): 54,0
+    Hloubka lichoběžníkového profilu průplavu (m): 4,0 – 5,0
+    Minimální poloměr oblouků Rmin (m): 800
+    Výjimečně přípustný poloměr oblouků Rmin min (m): 650
+    Podjezdná výška mostů (m): 7,0
 
 

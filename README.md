@@ -44,7 +44,7 @@ materiál 80 mil tun za rok
 
 náklady na přepravu v průměru 572kč na tunu                                                            
 
-
+při lodi 4000t a 80 mil tun za rok propluje kanálem 20000 lodí za rok 
 
 
 

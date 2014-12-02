@@ -4,6 +4,7 @@ IMS
 IMS
 
 z knihy DOL jen takový rychlí průjezd :D
+z úvodů typická souprava pro DOL 312 TEU o rozměrech 6.1x2.4x2.4 m
 35 jezů
 576 kč na tunu
 kamion 25t / 2 TEU (kontajner)

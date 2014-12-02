@@ -1,6 +1,6 @@
 IMS
 ===
-
+ as
 IMS
 
 z knihy DOL jen takový rychlí průjezd :D

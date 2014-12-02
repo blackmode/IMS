@@ -25,5 +25,22 @@ zdymadlo 170mx24m naplní za 22 min vyprázdní za 16 min  rozdíl hladin 7.5m =
 
 
 
+místa přístav Štětín, Kędzierzyn-Koźle v Polsku, Vídeň, Kožle, Bratislava, přerov, uherské hradiště kroměříž, olomouc , ústí nad orlicí, pardubice, kunín, ostrava, raciborz
+
+externí náklady při přepravě po vodě 3,5 krát nižší než při přepravě po železnici a 6,3 krát nižší než při přepravě po silnici.
+
+přeprava materialu 35 mil. tun ročně
+
+lodˇ 1050 t hamburg děčín 9Eur/t
+vlak 22 vagonu 47 t samá 23Eur/t
+24 kamionu 25 t samá 54Eur/t
+
+8 miliard Eur
+
+délka cca 370 km
+
+cca 21,621,622 Eur na km = 605 405 000 Kč
+
+
 
 

@@ -35,11 +35,18 @@ lodˇ 1050 t hamburg děčín 9Eur/t
 vlak 22 vagonu 47 t samá 23Eur/t
 24 kamionu 25 t samá 54Eur/t
 
-8 miliard Eur
 
-délka cca 370 km
+cca 21,621,622 Eur na km = 605 405 000 Kč                                                                      
 
-cca 21,621,622 Eur na km = 605 405 000 Kč
+údržba 50 mil. euro za rok po dokončení 4. etapy z roku 2004                                                         
+
+materiál 80 mil tun za rok                                                                              
+
+náklady na přepravu v průměru 572kč na tunu                                                            
+
+
+
+
 
 
 

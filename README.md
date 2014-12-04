@@ -88,7 +88,11 @@ parametry (k)análu
         }
 
 pozn.: myto = pocet KM * pocet tun * (0.006-0.01) €
+
 pozn.: vydelek = vydelek - vydaje na udrzbu kanalu
+
 pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
+
 pozn.: modelovani statistickych zacne od dokocneni vystavby, tj vsech 4 etap
+
 pozn.: 

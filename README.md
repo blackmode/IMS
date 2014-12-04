@@ -89,7 +89,7 @@ parametry (k)análu
 
 pozn.: myto = pocet KM * pocet tun * (0.006-0.01) €
 
-pozn.: vydelek = vydelek - vydaje na udrzbu kanalu
+pozn.: vydelek = vydelek - vydaje na udrzbu kanalu zakomponovat přijmy z výroby elektriky na zdymadlech
 
 pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
 
@@ -98,3 +98,5 @@ pozn.: modelovani statistickych zacne od dokocneni vystavby, tj vsech 4 etap
 pozn.: preprava na str. 110 a dal
 
 pozn.: narust hustoty prepravy o 1%/rok
+
+po 2 letech boom na otebření etapy a zvýšení přepravy materiálu 

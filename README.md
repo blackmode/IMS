@@ -70,3 +70,31 @@ parametry (k)análu
     Podjezdná výška mostů (m): 7,0
 
 
+----------------------------------------------------------
+
+    NAKODENI:
+        define (naklady na výstavbu jednotlivých etap)
+
+        #---tahle vypocita kolik to vydela za rok-----
+        FCE1: (mýto, kolikJeMateriáluZaRok) {
+            +rozdeleni pravdepodobnosti kdo kam pluje: 
+            +rocni narust lodí s nakladem
+
+        } 
+
+        #---procentualni pribytek lodi za rok (random)-----
+        FCE2: () {
+            return;
+        }
+
+pozn.: myto = pocet KM * pocet tun * (0.006-0.01) €
+
+pozn.: vydelek = vydelek - vydaje na udrzbu kanalu
+
+pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
+
+pozn.: modelovani statistickych zacne od dokocneni vystavby, tj vsech 4 etap
+
+pozn.: preprava na str. 110 a dal
+
+pozn.: narust hustoty prepravy o 1%/rok

@@ -95,4 +95,4 @@ pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
 
 pozn.: modelovani statistickych zacne od dokocneni vystavby, tj vsech 4 etap
 
-pozn.: 
+pozn.: preprava na str. 110 a dal

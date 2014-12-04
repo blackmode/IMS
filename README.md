@@ -96,3 +96,5 @@ pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
 pozn.: modelovani statistickych zacne od dokocneni vystavby, tj vsech 4 etap
 
 pozn.: preprava na str. 110 a dal
+
+pozn.: narust hustoty prepravy o 1%/rok

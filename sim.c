@@ -6,6 +6,9 @@ const float prvnia_etapa = 400.90;
 const float druha_etapa = 763.30;
 const float treti_etapa = 1992.20;
 const float ctvrta_etapa = 4106.90;
+const float delka_dunaj = 190.49;
+const float delka_odra = 162.45;
+const float delka_labe = 154.40 + 133.90; //k vybirani myta na Labe se bude zapocitavat cela vetev az k nemecku
 /*#define PRVNI_ETAPA 000   	//892.2
 #define DRUHA_ETAPA 000		//763.3
 #define TRETI_ETAPA 000		//1992.2
@@ -22,6 +25,11 @@ float hustota_dunaj = 30.316;
 float hustota_odra = 19.859;
 float hustota_labe = 4.675;
 
+//castky z udrzby a prijmu
+float udrzba_kanalu = 50;
+float prijem_elektrickeho_hospodarstvi = 5.1;
+//
+float myto = 0.01; //myto Eur na tunokilometr
 
 // deklarace fci
 float narustek = 1;
@@ -39,6 +47,16 @@ int procentualniPrirustekLodiZaRok () {
 	hustota_odra *= narustek;
 	hustota_labe *= narustek;
 	return 0;
+}
+
+float vypocetMytaZaRok(){
+	float celkove_myto = 0;
+
+	celkove_myto = delka_dunaj*0.01 * hustota_dunaj;
+	celkove_myto += delka_odra*0.01 * hustota_odra;
+	celkove_myto += delka_labe*0.01 * hustota_labe;
+
+	return celkove_myto;
 }
 
 //zjistuje zda jsou rekonstrukce v danem roce
@@ -76,7 +94,11 @@ int main () {
 		/*printf("hustota dopravy na dunajske vetvi %.3f\n", hustota_dunaj);
 		printf("hustota dopravy na oderske vetvi %.3f\n", hustota_odra);
 		printf("hustota dopravy na labske vetvi %.3f\n\n", hustota_labe);*/
+		float mytne = vypocetMytaZaRok();
+		printf("myto za rok %.3f v milionech Eur\n", mytne);
+
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
+		
 		procentualniPrirustekLodiZaRok();
 		rok++;
 	}

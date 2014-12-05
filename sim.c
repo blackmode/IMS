@@ -1,10 +1,11 @@
 #include <stdio.h>
 
-// MAKRA
-#define PRVNI_ETAPA 000
-#define DRUHA_ETAPA 000
-#define TRETI_ETAPA 000
-
+// MAKRA v milionech Euro
+#define PRVNI_ETAPA 000   	//892.2
+#define DRUHA_ETAPA 000		//763.3
+#define TRETI_ETAPA 000		//1992.2
+#define PRVNIA_ETAPA 000 	//400.9
+#define CTVRTA_ETAPA 000 	//4106.9
 // deklarace fci
 
 
@@ -13,7 +14,8 @@ int vypocetVydelkuZaRok () {
 
 	return 0;
 }
-
+// sem bych zadaval ruzny přisrustek ptz tu je 1% ale kdyz se kouknes jak to jinde 
+//tak bych to udelal ruzne
 int procentualniPrirustekLodiZaRok () {
 
 	return 0;
@@ -23,7 +25,8 @@ int procentualniPrirustekLodiZaRok () {
 int main () {
 	/**DEFINOVÁNÍ VSTUPŮ*/
 	// volani fci
-
+	int i = PRVNI_ETAPA;
+	printf("%d", i);
 	printf("hello\n");
 	return 0;
 }

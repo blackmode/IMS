@@ -82,6 +82,7 @@ parametry (k)análu
 
         } 
 
+	yadaval bzch od 1procenta třeba do 4
         #---procentualni pribytek lodi za rok (random)-----
         FCE2: () {
             return;
@@ -105,4 +106,4 @@ otevření kanálu 1.ledna 2033
 
 vnitrostátní přepravy po propojení DOL jsou předpokládány na 2.15 mil. t/rok
 
-dunajská větev 89%, oderska 45%, labska 31% -zatíženost větví
+dunajská větev 89%, oderska 45%, labska 31% -přepravní potenciál

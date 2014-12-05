@@ -70,9 +70,9 @@ void procentualniPrirustekLodiZaRok () {
 float vypocetMytaZaRok(){
 	float celkove_myto = 0;
 
-	celkove_myto = delka_dunaj*0.01 * hustota_dunaj;
-	celkove_myto += delka_odra*0.01 * hustota_odra;
-	celkove_myto += delka_labe*0.01 * hustota_labe;
+	celkove_myto = delka_dunaj*myto * hustota_dunaj;
+	celkove_myto += delka_odra*myto * hustota_odra;
+	celkove_myto += delka_labe*myto * hustota_labe;
 
 	return celkove_myto;
 }
@@ -101,17 +101,23 @@ float rekonstrukceEtap(){
 
 int main () {
 	int i;
-	float finance = 0;
+	//float finance = 0;
 	//cyklus simulace
+	//zvysovani myta pod 10 letech
+	int j = 0;
 	for(i = 0; i < delka_simulace; i++){
-
+		j++;
+		if(j == 10){
+			myto += 0.01;
+			j = 0;
+		}
 
 		//printf("rok %d a castka rek %.2f\n", rok, rekonstrukce );
 		/*printf("hustota dopravy na dunajske vetvi %.3f\n", hustota_dunaj);
 		printf("hustota dopravy na oderske vetvi %.3f\n", hustota_odra);
 		printf("hustota dopravy na labske vetvi %.3f\n\n", hustota_labe);*/
-		finance = vypocetVydelkuZaRok();
-		printf("finance za rok: %d : %f\n", rok, finance);
+		//finance = vypocetVydelkuZaRok();
+		printf("finance za rok: %d : %f\n", rok, vypocetVydelkuZaRok());
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
 		

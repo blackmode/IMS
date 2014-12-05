@@ -87,9 +87,9 @@ parametry (k)análu
             return;
         }
 
-pozn.: myto = pocet KM * pocet tun * (0.006-0.01) €
+pozn.: myto = pocet KM * pocet tun * (0.01 E/tkm) €
 
-pozn.: vydelek = vydelek - vydaje na udrzbu kanalu zakomponovat přijmy z výroby elektriky na zdymadlech
+pozn.: vydelek = vydelek - vydaje na udrzbu kanalu zakomponovat přijmy energetické hospodářství 5.1 mil Eur/rok
 
 pozn.: po 10 letech az si zvyknou na myto, jim je zvednout
 
@@ -99,4 +99,10 @@ pozn.: preprava na str. 110 a dal
 
 pozn.: narust hustoty prepravy o 1%/rok
 
-po 2 letech boom na otebření etapy a zvýšení přepravy materiálu 
+po 2 letech boom po otevření etapy a zvýšení přepravy materiálu 
+
+otevření kanálu 1.ledna 2033
+
+vnitrostátní přepravy po propojení DOL jsou předpokládány na 2.15 mil. t/rok
+
+dunajská větev 89%, oderska 45%, labska 31% -zatíženost větví

@@ -9,6 +9,13 @@ const float ctvrta_etapa = 4106.90;
 const float delka_dunaj = 190.49;
 const float delka_odra = 162.45;
 const float delka_labe = 154.40 + 133.90; //k vybirani myta na Labe se bude zapocitavat cela vetev az k nemecku
+
+float vypocetVydelkuZaRok ();
+void procentualniPrirustekLodiZaRok ();
+float vypocetMytaZaRok();
+float rekonstrukceEtap();
+
+
 /*#define PRVNI_ETAPA 000   	//892.2
 #define DRUHA_ETAPA 000		//763.3
 #define TRETI_ETAPA 000		//1992.2
@@ -34,19 +41,24 @@ float myto = 0.01; //myto Eur na tunokilometr
 // deklarace fci
 float narustek = 1;
 // funkce
-int vypocetVydelkuZaRok () {
-
-	return 0;
+float vypocetVydelkuZaRok () {
+	float celkove_finance = 0;
+	
+	celkove_finance = vypocetMytaZaRok();
+	celkove_finance -= rekonstrukceEtap();
+	celkove_finance -=udrzba_kanalu;
+	celkove_finance += prijem_elektrickeho_hospodarstvi;
+	
+	return celkove_finance;
 }
 // sem bych zadaval ruzny přisrustek ptz tu je 1% ale kdyz se kouknes jak to jinde 
 //tak bych to udelal ruzne
-int procentualniPrirustekLodiZaRok () {
+void procentualniPrirustekLodiZaRok () {
 	//narustek o kolik procent lodni doprava zhoustla zadan v procentech
 	narustek = 1.01;
 	hustota_dunaj *= narustek;
 	hustota_odra *= narustek;
 	hustota_labe *= narustek;
-	return 0;
 }
 
 float vypocetMytaZaRok(){
@@ -84,18 +96,17 @@ float rekonstrukceEtap(){
 
 int main () {
 	int i;
-	float rekonstrukce = 0;
+	float finance = 0;
 	//cyklus simulace
 	for(i = 0; i < delka_simulace; i++){
 
-		rekonstrukce = rekonstrukceEtap();
 
 		//printf("rok %d a castka rek %.2f\n", rok, rekonstrukce );
 		/*printf("hustota dopravy na dunajske vetvi %.3f\n", hustota_dunaj);
 		printf("hustota dopravy na oderske vetvi %.3f\n", hustota_odra);
 		printf("hustota dopravy na labske vetvi %.3f\n\n", hustota_labe);*/
-		float mytne = vypocetMytaZaRok();
-		printf("myto za rok %.3f v milionech Eur\n", mytne);
+		finance = vypocetVydelkuZaRok();
+		printf("finance za rok: %d : %f\n", rok, finance);
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
 		

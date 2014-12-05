@@ -21,11 +21,14 @@ float rekonstrukceEtap();
 #define TRETI_ETAPA 000		//1992.2
 #define PRVNIA_ETAPA 000 	//400.9
 #define CTVRTA_ETAPA 000 	//4106.9*/
+
 //volitelna simulace na urcity pocet let od roku 2032
 //zadame kolik let a je to
-//defaultne na 20
-int delka_simulace = 20;
+//defaultne na 20 let
+int delka_simulace = 30;
 int rok = 2033;
+
+//zjistit jeste pocet lodi ale jak?
 
 //hustota prepravy na jednotlovych kanalech za rok
 float hustota_dunaj = 30.316;
@@ -38,6 +41,8 @@ float prijem_elektrickeho_hospodarstvi = 5.1;
 //
 float myto = 0.01; //myto Eur na tunokilometr
 
+float finance_cele_obdobi = 0;
+
 // deklarace fci
 float narustek = 1;
 // funkce
@@ -49,6 +54,7 @@ float vypocetVydelkuZaRok () {
 	celkove_finance -=udrzba_kanalu;
 	celkove_finance += prijem_elektrickeho_hospodarstvi;
 	
+	finance_cele_obdobi += celkove_finance;
 	return celkove_finance;
 }
 // sem bych zadaval ruzny přisrustek ptz tu je 1% ale kdyz se kouknes jak to jinde 
@@ -90,7 +96,6 @@ float rekonstrukceEtap(){
 	if(rok == 2048){
 		castka_rekonstrukce = ctvrta_etapa*0.15;
 	}
-
 	return castka_rekonstrukce;
 }
 
@@ -113,6 +118,8 @@ int main () {
 		procentualniPrirustekLodiZaRok();
 		rok++;
 	}
+
+	printf("finance za celou simulaci  %.5f milionech Euro\n", finance_cele_obdobi);
 
 	/**DEFINOVÁNÍ VSTUPŮ*/
 	// volani fci

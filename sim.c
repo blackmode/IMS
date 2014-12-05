@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 // MAKRA v milionech Euro
+float prvni_etapa = 892.2;
 #define PRVNI_ETAPA 000   	//892.2
 #define DRUHA_ETAPA 000		//763.3
 #define TRETI_ETAPA 000		//1992.2
@@ -25,8 +26,7 @@ int procentualniPrirustekLodiZaRok () {
 int main () {
 	/**DEFINOVÁNÍ VSTUPŮ*/
 	// volani fci
-	int i = PRVNI_ETAPA;
-	printf("%d", i);
+	printf("%f", prvni_etapa);
 	printf("hello\n");
 	return 0;
 }

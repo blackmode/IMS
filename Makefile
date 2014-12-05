@@ -10,7 +10,7 @@ run:
 	./sim
 
 pack:
-	zip 07_xslun01_xstefl05.zip Makefile dokumentace.pdf *.h *.c 	
+	zip 02_xslun01_xstefl05.zip Makefile dokumentace.pdf *.h *.c 	
 
 clean:
 	rm -f sim

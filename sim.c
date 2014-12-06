@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 // MAKRA v milionech Euro
 const float prvni_etapa = 892.20;
@@ -14,6 +16,7 @@ float vypocetVydelkuZaRok ();
 void procentualniPrirustekLodiZaRok ();
 float vypocetMytaZaRok();
 float rekonstrukceEtap();
+float nahodnyVzrust();
 
 
 /*#define PRVNI_ETAPA 000   	//892.2
@@ -61,10 +64,12 @@ float vypocetVydelkuZaRok () {
 //tak bych to udelal ruzne
 void procentualniPrirustekLodiZaRok () {
 	//narustek o kolik procent lodni doprava zhoustla zadan v procentech
-	narustek = 1.01;
+	float vzrustOdFun = nahodnyVzrust();
+	narustek = 1.00 + vzrustOdFun;
 	hustota_dunaj *= narustek;
 	hustota_odra *= narustek;
 	hustota_labe *= narustek;
+	printf("rocni natustek dopravy o  %.2f proc.\n", vzrustOdFun * 100 );
 }
 
 float vypocetMytaZaRok(){
@@ -99,7 +104,20 @@ float rekonstrukceEtap(){
 	return castka_rekonstrukce;
 }
 
+//funkce na nahodny vzrust dopravy v intervalu od 1 do 4 procent
+float nahodnyVzrust(){
+	
+	float a = 0.01;
+	float b = 0.04;
+	float vysl = a + (b-a)*(float) rand()/RAND_MAX;
+	
+	return vysl;
+}
+
 int main () {
+	//zalezi jestli chceme mit kazdou simulaci stejne nebo ne 
+	//zatim stejne kdyztak se zmeni
+	//srand((unsigned int)time(NULL));
 	int i;
 	//float finance = 0;
 	//cyklus simulace
@@ -120,6 +138,8 @@ int main () {
 		printf("finance za rok: %d : %f\n", rok, vypocetVydelkuZaRok());
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
+
+		printf("------%f \n", nahodnyVzrust());
 		
 		procentualniPrirustekLodiZaRok();
 		rok++;

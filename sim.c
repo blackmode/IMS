@@ -56,6 +56,8 @@ float narustek = 1;
 //v roce 2017 je tolik v milionech tun za rok
 float preprava;
 
+
+float investice = 8155.6;
 // deklarace fci
 
 
@@ -240,7 +242,7 @@ void vypocetPrepravy(float procento){
 		preprava *= procento;
 	}
 
-	printf("\n%f preprava\n", preprava);
+	printf("\n%.3f preprava\n", preprava);
 }
 void energetickHospodarstvi(){
 	if(rok == etapa2)
@@ -290,7 +292,7 @@ int main () {
 		nahodny_vzrust = nahodnyVzrust();
 		vypocetPrepravy(nahodny_vzrust);
 		lodeZaRok();
-		printf("finance za rok: %d : %f\n", rok, vypocetVydelkuZaRok());
+		printf("finance za rok %d : %f\n", rok, vypocetVydelkuZaRok());
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
 
@@ -298,7 +300,7 @@ int main () {
 		//procentualniPrirustekLodiZaRok(nahodny_vzrust);
 		rok++;
 	}
-
+	finance_cele_obdobi -= investice;
 	printf("finance za celou simulaci  %.5f milionech Euro\n", finance_cele_obdobi);
 
 	return 0;

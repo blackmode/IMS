@@ -17,14 +17,7 @@ void procentualniPrirustekLodiZaRok ();
 float vypocetMytaZaRok();
 float rekonstrukceEtap();
 float nahodnyVzrust();
-
-
-/*#define PRVNI_ETAPA 000   	//892.2
-#define DRUHA_ETAPA 000		//763.3
-#define TRETI_ETAPA 000		//1992.2
-#define PRVNIA_ETAPA 000 	//400.9
-#define CTVRTA_ETAPA 000 	//4106.9*/
-
+void potencialKanalu();
 //volitelna simulace na urcity pocet let od roku 2032
 //zadame kolik let a je to
 //defaultne na 20 let
@@ -45,6 +38,8 @@ float prijem_elektrickeho_hospodarstvi = 5.1;
 float myto = 0.01; //myto Eur na tunokilometr
 
 float finance_cele_obdobi = 0;
+
+//vypocet potencialu kanalu od roku 2017
 
 // deklarace fci
 float narustek = 1;
@@ -114,6 +109,16 @@ float nahodnyVzrust(){
 	return vysl;
 }
 
+void potencialKanalu(){
+	int roky = 2017;
+
+	float potencial = 37.827;
+	for(roky = 2017; roky <= 2067; roky++){
+		printf("rok: %d potencial: %.3f\n", roky, potencial );
+		potencial *= 1.01;
+	}
+}
+
 int main () {
 	//zalezi jestli chceme mit kazdou simulaci stejne nebo ne 
 	//zatim stejne kdyztak se zmeni
@@ -122,6 +127,7 @@ int main () {
 	//float finance = 0;
 	//cyklus simulace
 	//zvysovani myta pod 10 letech
+	potencialKanalu();
 	int j = 0;
 	for(i = 0; i < delka_simulace; i++){
 		j++;

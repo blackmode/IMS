@@ -28,9 +28,10 @@ int rok = 2017;
 //zjistit jeste pocet lodi ale jak?---------------------------------------
 //1 lod 312TEU co jest 4000t
 //zjistim z poctu prepravy
-
+float lodi;
 //roky dokonceni etap
 int etapa1 = 2017;
+int etapa2 = 2019;
 int etapa3 = 2024;
 int etapa1a = 2026;
 int etapa4 = 2033;
@@ -41,10 +42,10 @@ float hustota_odra = 0;
 float hustota_labe = 0;
 
 //castky z udrzby a prijmu
-float udrzba_kanalu = 50;
-float prijem_elektrickeho_hospodarstvi = 5.1;
+float udrzba_kanalu = 9.2;
+float prijem_elektrickeho_hospodarstvi = 0.5;
 //
-float myto = 0.01; //myto Eur na tunokilometr
+float myto = 0.00; //myto Eur na tunokilometr
 
 float finance_cele_obdobi = 0;
 
@@ -186,7 +187,6 @@ float soucetPotencialu(){
 void vypocetPrepravy(float procento){
 	float tmp = 1.105;	//nez se otevrou aspon 2 vetve tak takto
 	procento += 1.00;
-	printf("\n--------%f\n", procento);
 	//otevreni treti etapy
 	if(etapa3 == rok){
 		hustota_dunaj = 6.565;
@@ -236,13 +236,35 @@ void vypocetPrepravy(float procento){
 	else{
 		hustota_odra *= procento;
 		hustota_labe *= procento;
-		printf("**%f\n", hustota_dunaj);
 		hustota_dunaj *= procento;
-		printf("**%f\n", hustota_dunaj);
 		preprava *= procento;
 	}
 
-	printf("%f praprava\n", preprava);
+	printf("\n%f preprava\n", preprava);
+}
+void energetickHospodarstvi(){
+	if(rok == etapa2)
+		prijem_elektrickeho_hospodarstvi = 2.6;
+	if(rok == etapa3)
+		prijem_elektrickeho_hospodarstvi = 4.2;
+	if(rok == etapa1a)
+		prijem_elektrickeho_hospodarstvi = 6.0;
+	if(rok == etapa4)
+		prijem_elektrickeho_hospodarstvi = 5.1;
+}
+
+//lod uveze 4000t materialu
+void lodeZaRok(){
+	lodi = preprava / 0.004;
+	printf("lode: %.0f\n", lodi);
+}
+float inflace(){
+	
+	float a = 1.01;
+	float b = 1.04;
+	float vysl = a + (b-a)*(float) rand()/RAND_MAX;
+	
+	return vysl;
 }
 
 int main () {
@@ -255,17 +277,19 @@ int main () {
 	//cyklus simulace
 	//zvysovani myta pod 10 letech
 	potencialKanalu();
-	int j = 0;
 	for(i = 0; i < delka_simulace; i++){
-		j++;
-		if(j == 10 ){
-			if(rok > etapa4)
-				myto += 0.01;
-			j = 0;
+	
+		if(rok == etapa3)
+			myto = 0.01;
+		if(rok >= etapa3){
+			myto *= inflace();
 		}
+
+		energetickHospodarstvi();
+
 		nahodny_vzrust = nahodnyVzrust();
 		vypocetPrepravy(nahodny_vzrust);
-
+		lodeZaRok();
 		printf("finance za rok: %d : %f\n", rok, vypocetVydelkuZaRok());
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
@@ -277,10 +301,5 @@ int main () {
 
 	printf("finance za celou simulaci  %.5f milionech Euro\n", finance_cele_obdobi);
 
-	/**DEFINOVÁNÍ VSTUPŮ*/
-	// volani fci
-	//prvni_etapa_udrzba = prvni_etapa*0.2;
-	//printf("%.2f\n", prvni_etapa_udrzba);
-	//printf("hello\n");
 	return 0;
 }

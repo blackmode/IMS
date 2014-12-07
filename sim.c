@@ -26,18 +26,19 @@ int delka_simulace = 50;
 int rok = 2017;
 
 //zjistit jeste pocet lodi ale jak?---------------------------------------
+//1 lod 312TEU co jest 4000t
 //zjistim z poctu prepravy
 
 //roky dokonceni etap
 int etapa1 = 2017;
-int etapa3 = 2023;
+int etapa3 = 2024;
 int etapa1a = 2026;
-int etepa4 = 2032;
+int etapa4 = 2033;
 
 //hustota prepravy na jednotlovych kanalech za rok
-float hustota_dunaj = 30.316;
-float hustota_odra = 19.859;
-float hustota_labe = 4.675;
+float hustota_dunaj = 0;
+float hustota_odra = 0;
+float hustota_labe = 0;
 
 //castky z udrzby a prijmu
 float udrzba_kanalu = 50;
@@ -52,7 +53,7 @@ float finance_cele_obdobi = 0;
 float narustek = 1;
 
 //v roce 2017 je tolik v milionech tun za rok
-float preprava = 1.105;
+float preprava;
 
 // deklarace fci
 
@@ -152,7 +153,7 @@ float rekonstrukceEtap(){
 float nahodnyVzrust(){
 	
 	float a = 0.01;
-	float b = 0.04;
+	float b = 0.01;
 	float vysl = a + (b-a)*(float) rand()/RAND_MAX;
 	
 	return vysl;
@@ -181,6 +182,68 @@ float soucetPotencialu(){
 
 	return potencial;
 }
+//vypocet hustoty prepravy v zavislosti na otevrenych etapach
+void vypocetPrepravy(float procento){
+	float tmp = 1.105;	//nez se otevrou aspon 2 vetve tak takto
+	procento += 1.00;
+	printf("\n--------%f\n", procento);
+	//otevreni treti etapy
+	if(etapa3 == rok){
+		hustota_dunaj = 6.565;
+		hustota_odra = 5.080;
+		preprava *= procento;
+	}
+	else if(etapa1a == rok){
+		procento =1.89;
+		hustota_dunaj *= procento;
+		hustota_odra *= procento;
+		preprava *= procento;
+	}
+	else if((etapa1a+1) == rok){
+		procento =1.47;
+		hustota_dunaj *= procento;
+		hustota_odra *= procento;
+		preprava *= procento;
+	}
+	else if((etapa1a+2) == rok){
+		procento =1.32;
+		hustota_dunaj *= procento;
+		hustota_odra *= procento;
+		preprava *= procento;
+	}
+	else if(etapa3 > rok){
+		preprava += tmp;
+	}
+
+	else if(etapa4 == rok){
+		hustota_labe = 4.675;
+		hustota_odra *= procento;
+		hustota_dunaj *= 1.20;
+		preprava *= 1.17;
+	}
+	else if((etapa4+1) == rok){
+		hustota_labe *= 2.01;
+		hustota_odra *= procento;
+		hustota_dunaj *= 1.14;
+		preprava *= 1.14;
+	}
+	else if((etapa4+2) == rok){
+		hustota_labe *= 1.50;
+		hustota_odra *= procento;
+		hustota_dunaj *= 1.14;
+		preprava *= 1.12;
+	}
+	else{
+		hustota_odra *= procento;
+		hustota_labe *= procento;
+		printf("**%f\n", hustota_dunaj);
+		hustota_dunaj *= procento;
+		printf("**%f\n", hustota_dunaj);
+		preprava *= procento;
+	}
+
+	printf("%f praprava\n", preprava);
+}
 
 int main () {
 	//zalezi jestli chceme mit kazdou simulaci stejne nebo ne 
@@ -195,22 +258,20 @@ int main () {
 	int j = 0;
 	for(i = 0; i < delka_simulace; i++){
 		j++;
-		if(j == 10){
-			myto += 0.01;
+		if(j == 10 ){
+			if(rok > etapa4)
+				myto += 0.01;
 			j = 0;
 		}
 		nahodny_vzrust = nahodnyVzrust();
-		//printf("rok %d a castka rek %.2f\n", rok, rekonstrukce );
-		/*printf("hustota dopravy na dunajske vetvi %.3f\n", hustota_dunaj);
-		printf("hustota dopravy na oderske vetvi %.3f\n", hustota_odra);
-		printf("hustota dopravy na labske vetvi %.3f\n\n", hustota_labe);*/
-		//finance = vypocetVydelkuZaRok();
+		vypocetPrepravy(nahodny_vzrust);
+
 		printf("finance za rok: %d : %f\n", rok, vypocetVydelkuZaRok());
 
 		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
 
 		
-		procentualniPrirustekLodiZaRok(nahodny_vzrust);
+		//procentualniPrirustekLodiZaRok(nahodny_vzrust);
 		rok++;
 	}
 

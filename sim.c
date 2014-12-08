@@ -117,7 +117,7 @@ void procentualniPrirustekLodiZaRok (float vzrustOdFun) {
 	hustota_dunaj *= narustek;
 	hustota_odra *= narustek;
 	hustota_labe *= narustek;
-	printf("rocni natustek dopravy o  %.2f proc.\n", vzrustOdFun * 100 );
+	//printf("rocni natustek dopravy o  %.2f proc.\n", vzrustOdFun * 100 );
 }
 
 float vypocetMytaZaRok(){
@@ -169,7 +169,7 @@ void potencialKanalu(){
 	potencial = soucetPotencialu();
 	printf("%f\n", potencial);
 	for(roky = 2017; roky <= 2067; roky++){
-		printf("rok: %d potencial: %.3f\n", roky, potencial );
+	//	printf("rok: %d potencial: %.3f\n", roky, potencial );
 		potencial *= 1.01;
 	}
 }
@@ -242,7 +242,7 @@ void vypocetPrepravy(float procento){
 		preprava *= procento;
 	}
 
-	printf("\n%.3f preprava\n", preprava);
+	//printf("\n%.3f preprava\n", preprava);
 }
 void energetickHospodarstvi(){
 	if(rok == etapa2)
@@ -258,7 +258,7 @@ void energetickHospodarstvi(){
 //lod uveze 4000t materialu
 void lodeZaRok(){
 	lodi = preprava / 0.004;
-	printf("lode: %.0f\n", lodi);
+	//printf("lode: %.0f\n", lodi);
 }
 float inflace(){
 	
@@ -293,15 +293,14 @@ int main () {
 		vypocetPrepravy(nahodny_vzrust);
 		lodeZaRok();
 		printf("finance za rok %d : %f\n", rok, vypocetVydelkuZaRok());
-
-		printf("%.3f  %.3f  %.3f\n",hustota_dunaj, hustota_odra, hustota_labe );
-
+		printf("myto za rok %d: %f Eur\n", rok, myto);
+		printf("Preprava dunajska vetev: %.3f miliony tun\nPrepravaOderska vetev: %.3f miliony tun\nPreprava Labska vetev: %.3f miliony tun\n\n",hustota_dunaj, hustota_odra, hustota_labe );
 		
 		//procentualniPrirustekLodiZaRok(nahodny_vzrust);
 		rok++;
 	}
 	finance_cele_obdobi -= investice;
-	printf("finance za celou simulaci  %.5f milionech Euro\n", finance_cele_obdobi);
+	printf("finance za celou simulaci  %.5f milionech Euro za %d let\n", finance_cele_obdobi, delka_simulace);
 
 	return 0;
 }

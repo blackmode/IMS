@@ -51,7 +51,8 @@ float BulharCR = 0.067;
 float BulharOdr = 0.161;
 float BulharLab = 0.085;
 
-float NemecCR = 0.237;
+float NemecCRL = 0.118;
+float NemecCRO = 0.119;
 float NemecOdr = 3.899;
 float NemecLab = 3.902;
 
@@ -142,6 +143,54 @@ float KyprLab = 0.139;
 
 void prepravaEtap1(){
 	float prepravaDunaj = 0;
+	float rust = 1.01;
+
+	EgyptCR *= rust;
+	prepravaDunaj += EgyptCR;
+
+	AzerCR *= rust;
+	prepravaDunaj += AzerCR;
+
+	BosnaCR *= rust;
+	prepravaDunaj += BosnaCR;
+
+	BulharCR *= rust;
+	prepravaDunaj += BulharCR;
+
+	GruziCR *= rust;
+	prepravaDunaj += GruziCR;
+
+	IranCR *= rust;
+	prepravaDunaj += IranCR;
+
+	KazachCR *= rust;
+	prepravaDunaj += KazachCR;
+
+	ChorCR *= rust;
+	prepravaDunaj += ChorCR;
+
+	LibanCR *= rust;
+	prepravaDunaj += LibanCR;
+
+	MoldCR *= rust;
+	prepravaDunaj += MoldCR;
+
+	RakouCR *= rust;
+	prepravaDunaj += RakouCR;
+
+	RumunCR *= rust;
+	prepravaDunaj += RumunCR;
+
+	RuskoCR *= rust;
+	prepravaDunaj += RuskoCR;
+
+	SrbskoCR *= rust;
+	prepravaDunaj += SrbskoCR;
+
+	SlovenCR *= rust;
+	prepravaDunaj += SlovenCR;
+
+	
 
 
 	dunaj = prepravaDunaj;

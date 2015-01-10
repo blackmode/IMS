@@ -2,12 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-// MAKRA v milionech Euro
+void prepravaEtap1();
+void prepravaEtap3();
+void prapravaEtap4();
+
+
+// constanty v milionech Euro
 const float prvni_etapa = 892.20;
 const float prvnia_etapa = 400.90;
 const float druha_etapa = 763.30;
 const float treti_etapa = 1992.20;
 const float ctvrta_etapa = 4106.90;
+
+//constanty delky rek
 const float delka_dunaj = 190.49;
 const float delka_odra = 162.45;
 const float delka_labe = 154.40 + 133.90; //k vybirani myta na Labe se bude zapocitavat cela vetev az k nemecku
@@ -24,7 +31,7 @@ const int etapa3 = 2024;
 const int etapa1a = 2026;
 const int etapa4 = 2033;
 
-//preddefinovane promenne dle vetvi
+//preddefinovane promenne dle vetvi cilove destinace
 float EgyptCR = 0.015;
 float EgyptOdr = 0.364;
 float EgyptLab = 0.139;
@@ -132,3 +139,38 @@ float Madarlab = 0.086;
 float KyprCR = 0.005;
 float KyprOdr = 0.03;
 float KyprLab = 0.139;
+
+void prepravaEtap1(){
+	float prepravaDunaj = 0;
+
+
+	dunaj = prepravaDunaj;
+}
+
+void prepravaEtap3(){
+	float prepravaDunaj = 0;
+	float prepravaOdra = 0;
+
+
+	dunaj = prepravaDunaj;
+	odra = prepravaOdra;
+}
+
+void prapravaEtap4(){
+	float prepravaDunaj = 0;
+	float prepravaOdra = 0;
+	float prepravaLabe = 0;
+
+
+
+	dunaj = prepravaDunaj;
+	odra = prepravaOdra;
+	labe = prepravaLabe;
+}
+
+int main(){
+
+
+
+	return 0;
+}

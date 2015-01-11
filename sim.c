@@ -110,7 +110,7 @@ float SrbskoOdr = 0.186;
 float SrbskoLab = 0.076;
 
 float SlovenCR = 0.504;
-float SlovenDun = 0.349;
+float SlovenOdr = 0.349;
 float SlovenLab = 0.406;
 
 float SyrieCR = 0.014;
@@ -220,7 +220,7 @@ void prepravaEtap3(){
 	EgyptCR *= rust;
 	EgyptOdr *= rust;
 	prepravaDunaj += EgyptOdr + EgyptCR;
-	prapravaOdra += EgyptOdr;
+	prepravaOdra += EgyptOdr;
 
 	AzerCR *= rust;
 	AzerOdr *= rust;
@@ -235,7 +235,7 @@ void prepravaEtap3(){
 	BulharCR *= rust;
 	BulharOdr *= rust;
 	prepravaDunaj += BulharOdr + BulharCR;
-	prapravaOdra += BulharOdr;
+	prepravaOdra += BulharOdr;
 
 	NemecCRO *= rust;
 	NemecOdr *= rust;
@@ -245,7 +245,7 @@ void prepravaEtap3(){
 	GruziCR *= rust;
 	GruziOdr *= rust;
 	prepravaDunaj += GruziCR + GruziOdr;
-	prapravaOdra += GruziOdr;
+	prepravaOdra += GruziOdr;
 
 	IranCR *= rust;
 	IranOdr *= rust;
@@ -255,7 +255,7 @@ void prepravaEtap3(){
 	IzraeCR *= rust;
 	IzraeOdr *= rust;
 	prepravaDunaj += IzraeCR + IzraeOdr;
-	prapravaOdra += IzraeOdr;
+	prepravaOdra += IzraeOdr;
 
 	KazachCR *= rust;
 	KazachOdr *= rust;
@@ -265,7 +265,78 @@ void prepravaEtap3(){
 	ChorCR *= rust;
 	ChorOdr *= rust;
 	prepravaDunaj += ChorCR + ChorOdr;
-	prapravaOdra += ChorOdr;
+	prepravaOdra += ChorOdr;
+
+	LibanCR *= rust;
+	LibanOdr *= rust;
+	prepravaDunaj += LibanOdr + LibanCR;
+	prepravaOdra += LibanOdr;
+
+	MoldCR *= rust;
+	MoldOdr *= rust;
+	prepravaDunaj += MoldOdr + MoldCR;
+	prepravaOdra += MoldOdr;
+
+	RakouCR *= rust;
+	RakouOdr *= rust;
+	prepravaDunaj += RakouCR + RakouOdr;
+	prepravaOdra += RakouOdr;
+
+	PolskoCR *= rust;
+	PolskoDun *= rust;
+	prepravaDunaj += PolskoDun;
+	prepravaOdra += PolskoDun + PolskoCR;
+
+	RumunCR *= rust;
+	RumunOdr *= rust;
+	prepravaDunaj += RumunCR + RumunOdr;
+	prepravaOdra += RumunOdr;
+
+	RuskoCR *= rust;
+	RuskoOdr *= rust;
+	prepravaDunaj += RuskoCR + RuskoOdr;
+	prepravaOdra += RuskoOdr;
+
+	SrbskoCR *= rust;
+	SrbskoOdr *= rust;
+	prepravaDunaj += SrbskoCR + SrbskoOdr;
+	prepravaOdra += SrbskoOdr;
+
+	SlovenCR *= rust;
+	SlovenOdr *= rust;
+	prepravaDunaj +=  SlovenCR + SlovenOdr;
+	prepravaOdra += SlovenOdr;
+
+	CRDun *= rust;
+	CROdr *= rust;
+	prepravaDunaj += CRDun;
+	prepravaOdra += CROdr;
+
+	TurecCR *= rust;
+	TurecOdr *= rust;
+	prepravaDunaj +=  TurecCR + TurecOdr;
+	prepravaOdra += TurecOdr;
+
+	TurkmCR *= rust;
+	TurkmOdr *= rust;
+	prepravaDunaj += TurecCR + TurkmOdr;
+	prepravaOdra += TurkmOdr;
+
+	UkrajCR *= rust;
+	UkrajOdr *= rust;
+	prepravaDunaj += UkrajCR + UkrajOdr;
+	prepravaOdra += UkrajOdr;
+
+	MadarCR *= rust;
+	MadarOdr *= rust;
+	prepravaDunaj += MadarCR + MadarOdr;
+	prepravaOdra += MadarOdr;
+
+	KyprCR *= rust;
+	KyprOdr *= rust;
+	prepravaDunaj += KyprCR + KyprOdr;
+	prepravaOdra += KyprOdr;
+
 
 	dunaj = prepravaDunaj;
 	odra = prepravaOdra;
@@ -276,7 +347,7 @@ void prapravaEtap4(){
 	float prepravaOdra = 0;
 	float prepravaLabe = 0;
 	float rust = 1.01;
-
+    
 
 	dunaj = prepravaDunaj;
 	odra = prepravaOdra;
@@ -284,12 +355,17 @@ void prapravaEtap4(){
 }
 
 int main(){
-
+	int delkaSimulace = 50;
+	int rok = 2017;
 	int i;
-	for(i = 0; i < 10; i++){
-		prepravaEtap1();
+	for(i = 0; i < delkaSimulace; i++){
+		if(rok >= etapa1 && rok < etapa3)
+			prepravaEtap1();
+		if(rok >= etapa3 && rok < etapa4)
+			prepravaEtap3();
 
-		printf(" %f\n", dunaj);
+		printf("rok: %d ---- %f  ---- %f ---- %f\n", rok, dunaj, odra, labe);
+		rok++;
     }
 
 	return 0;

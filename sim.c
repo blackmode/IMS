@@ -41,7 +41,7 @@ float AzerOdr = 0.037;
 float AzerLab = 0.018;
 
 float BosnaCR = 0.067;
-float BosnaOdr = 0.068
+float BosnaOdr = 0.068;
 float BosnaLab = 0.048;
 
 float BremenCR = 0.034;
@@ -190,7 +190,23 @@ void prepravaEtap1(){
 	SlovenCR *= rust;
 	prepravaDunaj += SlovenCR;
 
-	
+	SyrieCR *= rust;
+	prepravaDunaj += SyrieCR;
+
+	TurecCR *= rust;
+	prepravaDunaj += TurecCR;
+
+	TurkmCR *= rust;
+	prepravaDunaj += TurkmCR;
+
+	UkrajOdr *= rust;
+	prepravaDunaj += UkrajCR;
+
+	MadarCR *= rust;
+	prepravaDunaj += MadarCR;
+
+	KyprCR *= rust;	
+	prepravaDunaj += KyprCR;
 
 
 	dunaj = prepravaDunaj;
@@ -199,7 +215,57 @@ void prepravaEtap1(){
 void prepravaEtap3(){
 	float prepravaDunaj = 0;
 	float prepravaOdra = 0;
+	float rust = 1.01;
 
+	EgyptCR *= rust;
+	EgyptOdr *= rust;
+	prepravaDunaj += EgyptOdr + EgyptCR;
+	prapravaOdra += EgyptOdr;
+
+	AzerCR *= rust;
+	AzerOdr *= rust;
+	prepravaDunaj += AzerOdr + AzerCR;
+	prepravaOdra += AzerOdr;
+
+	BosnaCR *= rust;
+	BosnaOdr *= rust;
+	prepravaDunaj += BosnaOdr + BulharCR;
+	prepravaOdra += BosnaOdr;
+
+	BulharCR *= rust;
+	BulharOdr *= rust;
+	prepravaDunaj += BulharOdr + BulharCR;
+	prapravaOdra += BulharOdr;
+
+	NemecCRO *= rust;
+	NemecOdr *= rust;
+	prepravaDunaj +=  NemecCRO + NemecOdr;
+	prepravaOdra += NemecOdr + NemecCRO;
+
+	GruziCR *= rust;
+	GruziOdr *= rust;
+	prepravaDunaj += GruziCR + GruziOdr;
+	prapravaOdra += GruziOdr;
+
+	IranCR *= rust;
+	IranOdr *= rust;
+	prepravaDunaj += IranOdr + IranCR;
+	prepravaOdra += IranOdr;
+
+	IzraeCR *= rust;
+	IzraeOdr *= rust;
+	prepravaDunaj += IzraeCR + IzraeOdr;
+	prapravaOdra += IzraeOdr;
+
+	KazachCR *= rust;
+	KazachOdr *= rust;
+	prepravaDunaj += KazachCR + KazachOdr;
+	prepravaOdra += KazachOdr;
+
+	ChorCR *= rust;
+	ChorOdr *= rust;
+	prepravaDunaj += ChorCR + ChorOdr;
+	prapravaOdra += ChorOdr;
 
 	dunaj = prepravaDunaj;
 	odra = prepravaOdra;
@@ -209,7 +275,7 @@ void prapravaEtap4(){
 	float prepravaDunaj = 0;
 	float prepravaOdra = 0;
 	float prepravaLabe = 0;
-
+	float rust = 1.01;
 
 
 	dunaj = prepravaDunaj;
@@ -219,7 +285,12 @@ void prapravaEtap4(){
 
 int main(){
 
+	int i;
+	for(i = 0; i < 10; i++){
+		prepravaEtap1();
 
+		printf(" %f\n", dunaj);
+    }
 
 	return 0;
 }

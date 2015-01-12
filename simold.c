@@ -244,7 +244,7 @@ void vypocetPrepravy(float procento){
 
 	//printf("\n%.3f preprava\n", preprava);
 }
-void energetickHospodarstvi(){
+void energetickHospodarstvi(int){
 	if(rok == etapa2)
 		prijem_elektrickeho_hospodarstvi = 2.6;
 	if(rok == etapa3)

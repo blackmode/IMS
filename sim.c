@@ -31,6 +31,9 @@ const int etapa3 = 2024;
 const int etapa1a = 2026;
 const int etapa4 = 2033;
 
+//promenne pro vypocet vydelku
+float myto = 0;
+
 //preddefinovane promenne dle vetvi cilove destinace
 float EgyptCR = 0.015;
 float EgyptOdr = 0.364;
@@ -140,6 +143,54 @@ float Madarlab = 0.086;
 float KyprCR = 0.005;
 float KyprOdr = 0.03;
 float KyprLab = 0.139;
+//*************************************//
+/****************funkce***************/
+//zjistuje zda jsou rekonstrukce v danem roce
+float rekonstrukceEtap(int rok){
+	float castka_rekonstrukce = 0;
+
+	if(rok == 2036){
+		castka_rekonstrukce = prvni_etapa*0.15;
+	}
+	if(rok == 2038){
+		castka_rekonstrukce = druha_etapa*0.15;
+	}
+	if(rok == 2042){
+		castka_rekonstrukce = treti_etapa*0.15;
+	}
+	if(rok == 2043){
+		castka_rekonstrukce = prvnia_etapa*0.15;
+	}
+	if(rok == 2048){
+		castka_rekonstrukce = ctvrta_etapa*0.15;
+	}
+	return castka_rekonstrukce;
+}
+float energetickHospodarstvi(int rok){
+	float prijem;
+	if(rok >= etapa1 && rok < etapa2 )
+		prijem = 0.5;
+	if(rok >= etapa2 && rok < etapa3 )
+		prijem = 2.6;
+	if(rok >= etapa3 && rok < etapa1a )
+		prijem = 4.2;
+	if(rok >= etapa3 && rok < etapa1a )
+		prijem = 6.0;
+	if(rok >= etapa4 )
+		prijem = 5.1;
+
+	return prijem;
+}
+
+float vypocetMytaZaRok(){
+	float celkove_myto = 0;
+
+	celkove_myto = delka_dunaj*myto * dunaj;
+	celkove_myto += delka_odra*myto * odra;
+	celkove_myto += delka_labe*myto * labe;
+
+	return celkove_myto;
+}
 
 void prepravaEtap1(){
 	float prepravaDunaj = 0;
@@ -534,20 +585,61 @@ void prepravaEtap4(){
 	odra = prepravaOdra;
 	labe = prepravaLabe;
 }
-
+float inflace(){
+	
+	float a = 1.01;
+	float b = 1.04;
+	float vysl = a + (b-a)*(float) rand()/RAND_MAX;
+	
+	return vysl;
+}
+float udrzba_kanalu(int rok){
+	float udrzbaKanal;
+	if(rok >= etapa1 && rok < etapa2 )
+		udrzbaKanal = 9.2;
+	if(rok >= etapa2 && rok < etapa3 )
+		udrzbaKanal = 16.9;
+	if(rok >= etapa3 && rok < etapa1a )
+		udrzbaKanal = 33.6;
+	if(rok >= etapa3 && rok < etapa1a )
+		udrzbaKanal = 35.9;
+	if(rok >= etapa4 )
+		udrzbaKanal = 54.8;
+	
+	return udrzbaKanal;
+}
+float vypocetVydelkuZaRok (int rok) {
+	float finance = 0;
+	
+	finance = vypocetMytaZaRok(rok);
+	finance -= rekonstrukceEtap(rok);
+	finance -= udrzba_kanalu(rok);
+	finance += energetickHospodarstvi(rok);
+	
+	return finance;
+}
 int main(){
 	int delkaSimulace = 50;
 	int rok = 2017;
 	int i;
+
 	for(i = 0; i < delkaSimulace; i++){
+		if(rok == etapa3)
+			myto = 0.01;
 		if(rok >= etapa1 && rok < etapa3)
 			prepravaEtap1();
-		if(rok >= etapa3 && rok < etapa4)
+		if(rok >= etapa3 && rok < etapa4){
+			myto *= inflace();
 			prepravaEtap3();
-		if(rok >= etapa4)
+		}
+		if(rok >= etapa4){
+			myto *= inflace();
 			prepravaEtap4();
+		}
 
+		printf("Celkove finance za rok %d jsou: %f\n", rok, vypocetVydelkuZaRok(rok));
 		printf("rok: %d - %f \t %f \t %f\n", rok, dunaj, odra, labe);
+		printf("-----------------------------------------------------\n");
 		rok++;
     }
 
